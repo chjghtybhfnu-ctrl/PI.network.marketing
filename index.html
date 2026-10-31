@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PI Network Marketing — Unofficial Demo</title>
+<style>
+:root{--blue:#2878e8;--deep:#2453d7;--ink:#1d2a3b;--muted:#7b8796;--bg:#f3f5f8;--card:#fff;--green:#20a66a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font:15px system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--ink)}
+button,input{font:inherit}.top{background:#fff;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 12px #152b4810;position:sticky;top:0;z-index:2}
+.brand{font-size:24px;font-weight:800;letter-spacing:-1px}.brand span{color:#e33c4b}.demo{font-size:11px;color:#fff;background:#e69a25;padding:5px 9px;border-radius:20px;margin-left:8px;vertical-align:middle;letter-spacing:.4px}
+.wrap{max-width:760px;margin:auto;padding:16px 14px 92px}.hero{background:linear-gradient(120deg,#2862dc,#66b5f4);color:white;padding:24px 20px;border-radius:20px;box-shadow:0 8px 20px #347bd52b}
+.profile{display:flex;gap:14px;align-items:center}.avatar{width:58px;height:58px;border-radius:50%;background:#ffffff35;display:grid;place-items:center;font-size:28px}
+.email{font-weight:700;overflow-wrap:anywhere}.uid{opacity:.9;margin-top:4px;font-size:13px}.score{color:#ffed58;font-weight:800;margin-top:15px}.balance{font-size:20px;font-weight:800;margin-top:8px}
+.card{background:var(--card);border-radius:17px;padding:18px;margin-top:15px;box-shadow:0 4px 16px #142b4810}.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.section-head h2{font-size:17px;margin:0}.sub{color:var(--muted);font-size:12px}
+.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.action{border:0;background:#f5f8ff;border-radius:13px;padding:14px 5px;color:var(--ink);cursor:pointer}.action b{display:block;font-size:22px;margin-bottom:4px}.action small{font-size:12px}
+.market{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.coin{background:#f7f9fc;border-radius:12px;padding:13px 9px}.coin strong{font-size:13px}.price{color:var(--green);font-weight:800;margin-top:7px}.change{font-size:12px;color:var(--green);margin-top:2px}
+.row{display:flex;align-items:center;justify-content:space-between;padding:13px 0;border-bottom:1px solid #edf0f4}.row:last-child{border:0}.coinname{display:flex;align-items:center;gap:10px;font-weight:650}.coinicon{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#fff0d9;color:#c78322}.positive{color:var(--green);font-weight:750}
+.menu .row{cursor:pointer}.menu .row:hover{color:var(--blue)}.arrow{color:#aab3bd}
+.nav{position:fixed;bottom:0;left:0;right:0;background:#fff;display:flex;justify-content:center;border-top:1px solid #e8ebef;z-index:3}.navinner{width:min(760px,100%);display:grid;grid-template-columns:repeat(5,1fr)}.nav button{border:0;background:white;padding:9px 2px 7px;color:#687485;cursor:pointer;font-size:11px}.nav button span{display:block;font-size:21px;margin-bottom:2px}.nav button.active{color:var(--blue);font-weight:750}
+.page{display:none}.page.active{display:block}.notice{background:#fff8e9;border:1px solid #f5dfb5;color:#805b18;padding:12px 14px;border-radius:12px;font-size:12px;line-height:1.5;margin-top:14px}
+.primary{border:0;background:linear-gradient(90deg,#3e43e8,#55aee8);color:#fff;border-radius:12px;padding:13px 18px;font-weight:700;cursor:pointer;width:100%}
+.field{width:100%;border:1px solid #dce2e9;border-radius:12px;padding:13px;margin:7px 0 14px;outline:none}.field:focus{border-color:var(--blue)}
+.auth{max-width:430px;margin:45px auto;background:white;padding:25px;border-radius:20px;box-shadow:0 6px 24px #152b4812}.auth h1{text-align:center;margin:4px 0 22px}.link{color:var(--blue);cursor:pointer;text-align:center;margin-top:16px}
+@media(max-width:430px){.wrap{padding:12px 10px 88px}.hero{padding:20px 15px}.market{gap:5px}.coin{padding:11px 6px}.coin strong{font-size:11px}.price{font-size:13px}.card{padding:15px}.balance{font-size:18px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="brand">π <span>Network</span> Marketing<span class="demo">UNOFFICIAL DEMO</span></div><div style="color:#8290a1">☰</div></header>
+<main class="wrap">
+<section id="login" class="page">
+ <div class="auth"><h1>PI Network Marketing</h1><p class="sub" style="text-align:center">Demo account access</p>
+ <label>Email</label><input class="field" type="email" placeholder="name@example.com" id="email">
+ <label>Password</label><input class="field" type="password" placeholder="Demo password (not saved)" id="password">
+ <button class="primary" onclick="enterDemo()">Enter Demo</button>
+ <p class="notice">Demo only: do not enter a real password or financial information. This page does not create or authenticate real accounts.</p>
+ <div class="link" onclick="showPage('home')">Continue to sample dashboard</div></div>
+</section>
+<section id="home" class="page active">
+ <div class="hero"><div class="profile"><div class="avatar">👤</div><div><div class="email" id="userEmail">demo.user@example.com</div><div class="uid">UID: DEMO-890301</div></div></div>
+ <div class="score">Demo Credit Score: 100</div><div class="balance">Sample Balance: ₹0.0000</div></div>
+ <div class="card"><div class="section-head"><h2>Market overview</h2><span class="sub">Sample values</span></div><div class="market">
+ <div class="coin"><strong>BTC/USDT</strong><div class="price">$67,240</div><div class="change">+1.75%</div></div>
+ <div class="coin"><strong>ETH/USDT</strong><div class="price">$3,014</div><div class="change">+2.19%</div></div>
+ <div class="coin"><strong>DOGE/USDT</strong><div class="price">$0.1269</div><div class="change">+2.12%</div></div></div></div>
+ <div class="card"><div class="actions">
+ <button class="action" onclick="showPage('asset')"><b>▣</b><small>Assets</small></button>
+ <button class="action" onclick="showPage('orders')"><b>▤</b><small>Orders</small></button>
+ <button class="action" onclick="showPage('help')"><b>☏</b><small>Help Center</small></button></div></div>
+ <div class="card"><div class="section-head"><h2>Market prices</h2><span class="sub">Illustrative only</span></div><div id="marketRows"></div></div>
+ <div class="notice">This is a non-financial demonstration interface. Prices, balances and account details are fictional sample data, not live market data or investment advice.</div>
+</section>
+<section id="orders" class="page"><div class="card"><div class="section-head"><h2>Order history</h2><span class="sub">Demo</span></div><p class="sub">No sample orders yet.</p></div></section>
+<section id="market" class="page"><div class="card"><div class="section-head"><h2>Market</h2><span class="sub">Sample tickers</span></div><div id="marketRows2"></div></div><div class="notice">No trading is available in this demo.</div></section>
+<section id="asset" class="page"><div class="card"><h2>My Assets</h2><div class="row"><span>Available balance</span><b>₹0.0000</b></div><div class="row"><span>BTC</span><b>0.000000</b></div><div class="row"><span>ETH</span><b>0.000000</b></div><div class="notice">Recharge and withdrawal are disabled. No money or cryptocurrency can be sent through this demo.</div></div></section>
+<section id="profile" class="page"><div class="card"><h2>My Profile</h2><div class="row"><span>Email</span><b id="profileEmail">demo.user@example.com</b></div><div class="row"><span>UID</span><b>DEMO-890301</b></div><div class="row"><span>Credit score</span><b>100 (sample)</b></div></div><div class="card menu"><div class="row" onclick="showPage('collection')">▣ &nbsp; Collection Information <span class="arrow">›</span></div><div class="row" onclick="showPage('authinfo')">◈ &nbsp; Authentication <span class="arrow">›</span></div><div class="row" onclick="showPage('messages')">✉ &nbsp; User Message <span class="arrow">›</span></div><div class="row" onclick="showPage('help')">✦ &nbsp; Help Center <span class="arrow">›</span></div><div class="row" onclick="showPage('settings')">⚙ &nbsp; Settings <span class="arrow">›</span></div></div></section>
+<section id="collection" class="page"><div class="card"><h2>Collection Information</h2><p class="sub">Demo profile information only. No payment details are collected.</p></div></section>
+<section id="authinfo" class="page"><div class="card"><h2>Authentication</h2><p class="sub">This prototype has no real identity verification or account authentication.</p></div></section>
+<section id="messages" class="page"><div class="card"><h2>User Message</h2><p class="sub">No messages in this demo.</p></div></section>
+<section id="help" class="page"><div class="card"><h2>Help Center</h2><p>Need help exploring the demo? Use the bottom navigation to switch between Home, Orders, Market, Assets and Profile.</p></div></section>
+<section id="settings" class="page"><div class="card"><h2>Settings</h2><div class="row"><span>Interface</span><b>English</b></div><div class="row"><span>Account mode</span><b>Demo</b></div><button class="primary" onclick="showPage('login')">Back to demo login</button></div></section>
+</main>
+<nav class="nav"><div class="navinner">
+<button class="active" data-page="home" onclick="showPage('home')"><span>⌂</span>Home</button>
+<button data-page="orders" onclick="showPage('orders')"><span>▤</span>Order</button>
+<button data-page="market" onclick="showPage('market')"><span>◉</span>Market</button>
+<button data-page="asset" onclick="showPage('asset')"><span>▣</span>Asset</button>
+<button data-page="profile" onclick="showPage('profile')"><span>♟</span>My</button>
+</div></nav>
+<script>
+const coins=[['₿','BTC/USDT','$67,240','+1.75%'],['◆','ETH/USDT','$3,014','+2.19%'],['Ð','DOGE/USDT','$0.1269','+2.12%'],['◉','CHZ/USDT','$0.0738','+3.16%'],['●','PSG/USDT','$0.8351','+0.16%']];
+function renderRows(id){document.getElementById(id).innerHTML=coins.map(c=>`<div class="row"><div class="coinname"><span class="coinicon">${c[0]}</span>${c[1]}</div><b>${c[2]}</b><span class="positive">${c[3]}</span></div>`).join('')}
+renderRows('marketRows');renderRows('marketRows2');
+function showPage(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const target=document.getElementById(id);if(target)target.classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo(0,0)}
+function enterDemo(){const e=document.getElementById('email').value.trim();if(e){document.getElementById('userEmail').textContent=e;document.getElementById('profileEmail').textContent=e}showPage('home')}
+</script>
+</body></html>
